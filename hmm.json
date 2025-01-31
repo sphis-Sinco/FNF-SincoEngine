@@ -39,6 +39,11 @@
       "name": "openfl",
       "type": "haxelib",
       "version": "9.3.3"
+    },
+    {
+      "name": "tjson",
+      "type": "haxelib",
+      "version": "1.4.0"
     }
   ]
 }
