@@ -1,17 +1,10 @@
 package backend;
 
-import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
+import openfl.utils.Assets;
 
 class CoolUtil
 {
-	inline public static function quantize(f:Float, snap:Float){
-		// changed so this actually works lol
-		var m:Float = Math.fround(f * snap);
-		//trace(snap);
-		return (m / snap);
-	}
-
 	inline public static function capitalize(text:String)
 		return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
 
@@ -48,19 +41,6 @@ class CoolUtil
 		return daList;
 	}
 
-	public static function floorDecimal(value:Float, decimals:Int):Float
-	{
-		if(decimals < 1)
-			return Math.floor(value);
-
-		var tempMult:Float = 1;
-		for (i in 0...decimals)
-			tempMult *= 10;
-
-		var newValue:Float = Math.floor(value * tempMult);
-		return newValue / tempMult;
-	}
-
 	inline public static function dominantColor(sprite:flixel.FlxSprite):Int
 	{
 		var countByColor:Map<Int, Int> = [];
@@ -91,14 +71,6 @@ class CoolUtil
 		}
 		countByColor = [];
 		return maxKey;
-	}
-
-	inline public static function numberArray(max:Int, ?min = 0):Array<Int>
-	{
-		var dumbArray:Array<Int> = [];
-		for (i in min...max) dumbArray.push(i);
-
-		return dumbArray;
 	}
 
 	inline public static function browserLoad(site:String) {
