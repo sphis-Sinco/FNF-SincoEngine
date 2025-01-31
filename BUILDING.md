@@ -79,15 +79,11 @@ For building the game, in every system, you're going to execute `haxelib setup`.
 
 In Mac and Linux, you need to create a folder to put your Haxe libraries in, do `mkdir ~/haxelib && haxelib setup ~/haxelib`.
 
-Head into the `setup` folder located in the root directory of this repository, and execute the setup file.
+Now you should run `hmm install` and you should be good.
 
-### "Which setup file?"
+### I dont have HMM
 
-It depends on your operating system. For Windows, run `windows.bat`, for anything else, run `unix.sh`.
-
-Sit back, relax, and wait for haxelib to do its magic. You will be done when you see the word "**Finished!**"
-
-To build the game, run `lime test cpp`.
+You can download it [here](https://lib.haxe.org/p/hmm/)
 
 ---
 
@@ -104,5 +100,4 @@ e.g: Fedora is `gcc-c++`, Gentoo is `sys-devel/gcc`, and so on.
 ### "I have an error saying ApplicationMain.exe : fatal error LNK1120: 1 unresolved externals!"
 
 Run `lime test cpp -clean` again, or delete the export folder and compile again.
-
 ---
