@@ -1,16 +1,14 @@
 package states.editors.content;
 
-import backend.Song;
 import backend.Rating;
-
+import backend.Song;
+import flixel.animation.FlxAnimationController;
+import flixel.input.keyboard.FlxKey;
+import flixel.util.FlxSort;
+import flixel.util.FlxStringUtil;
 import objects.Note;
 import objects.NoteSplash;
 import objects.StrumNote;
-
-import flixel.util.FlxSort;
-import flixel.util.FlxStringUtil;
-import flixel.animation.FlxAnimationController;
-import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 
 class EditorPlayState extends MusicBeatSubstate
@@ -229,8 +227,8 @@ class EditorPlayState extends MusicBeatSubstate
 			});
 		}
 		
-		var time:Float = CoolUtil.floorDecimal((Conductor.songPosition - ClientPrefs.data.noteOffset) / 1000, 1);
-		var songLen:Float = CoolUtil.floorDecimal(songLength / 1000, 1);
+		var time:Float = MathFunctions.floorDecimal((Conductor.songPosition - ClientPrefs.data.noteOffset) / 1000, 1);
+		var songLen:Float = MathFunctions.floorDecimal(songLength / 1000, 1);
 		dataTxt.text = 'Time: $time / $songLen' +
 						'\n\nSection: $curSection' +
 						'\nBeat: $curBeat' +

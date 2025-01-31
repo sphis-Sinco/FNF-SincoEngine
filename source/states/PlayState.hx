@@ -1,51 +1,45 @@
 package states;
 
 import backend.Highscore;
+import backend.Rating;
+import backend.Song;
 import backend.StageData;
 import backend.WeekData;
-import backend.Song;
-import backend.Rating;
-
+import cutscenes.DialogueBoxPsych;
 import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.FlxSubState;
+import flixel.animation.FlxAnimationController;
+import flixel.input.keyboard.FlxKey;
+import flixel.util.FlxSave;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
-import flixel.util.FlxSave;
-import flixel.input.keyboard.FlxKey;
-import flixel.animation.FlxAnimationController;
-import lime.utils.Assets;
-import openfl.utils.Assets as OpenFlAssets;
-import openfl.events.KeyboardEvent;
 import haxe.Json;
-
-import cutscenes.DialogueBoxPsych;
-
-import states.StoryMenuState;
+import lime.utils.Assets;
+import objects.*;
+import objects.Note.EventNote;
+import objects.VideoSprite;
+import openfl.events.KeyboardEvent;
+import openfl.utils.Assets as OpenFlAssets;
 import states.FreeplayState;
-import states.editors.ChartingState;
+import states.StoryMenuState;
 import states.editors.CharacterEditorState;
-
-import substates.PauseSubState;
+import states.editors.ChartingState;
+import states.stages.*;
+import states.stages.objects.*;
 import substates.GameOverSubstate;
-
+import substates.PauseSubState;
 #if !flash
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 #end
 
-import objects.VideoSprite;
-
-import objects.Note.EventNote;
-import objects.*;
-import states.stages.*;
-import states.stages.objects.*;
 
 #if LUA_ALLOWED
 import psychlua.*;
 #else
-import psychlua.LuaUtils;
 import psychlua.HScript;
+import psychlua.LuaUtils;
 #end
 
 #if HSCRIPT_ALLOWED
@@ -1144,7 +1138,7 @@ class PlayState extends MusicBeatState
 		var str:String = Language.getPhrase('rating_$ratingName', ratingName);
 		if(totalPlayed != 0)
 		{
-			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
+			var percent:Float = MathFunctions.floorDecimal(ratingPercent * 100, 2);
 			str += ' (${percent}%) - ' + Language.getPhrase(ratingFC);
 		}
 

@@ -1,21 +1,16 @@
 package states;
 
-import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
-
-import objects.HealthIcon;
-import objects.MusicPlayer;
-
-import options.GameplayChangersSubstate;
-import substates.ResetScoreSubState;
-
+import backend.WeekData;
 import flixel.math.FlxMath;
 import flixel.util.FlxDestroyUtil;
-
-import openfl.utils.Assets;
-
 import haxe.Json;
+import objects.HealthIcon;
+import objects.MusicPlayer;
+import openfl.utils.Assets;
+import options.GameplayChangersSubstate;
+import substates.ResetScoreSubState;
 
 class FreeplayState extends MusicBeatState
 {
@@ -231,7 +226,7 @@ class FreeplayState extends MusicBeatState
 		if (Math.abs(lerpRating - intendedRating) <= 0.01)
 			lerpRating = intendedRating;
 
-		var ratingSplit:Array<String> = Std.string(CoolUtil.floorDecimal(lerpRating * 100, 2)).split('.');
+		var ratingSplit:Array<String> = Std.string(MathFunctions.floorDecimal(lerpRating * 100, 2)).split('.');
 		if(ratingSplit.length < 2) //No decimals, add an empty space
 			ratingSplit.push('');
 		

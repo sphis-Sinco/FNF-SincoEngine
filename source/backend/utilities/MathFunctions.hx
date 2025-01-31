@@ -1,7 +1,8 @@
-package backend;
+package backend.utilities;
 
-class Math
+class MathFunctions
 {
+	// not even used?
 	inline public static function quantize(f:Float, snap:Float){
 		// changed so this actually works lol
 		var m:Float = Math.fround(f * snap);
